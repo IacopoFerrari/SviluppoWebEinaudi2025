@@ -121,9 +121,5 @@ dmypy.json
 tmp
 
 # custom
-mmrotate/.mim
 
-mmrotate/demo/data/res_inference_0703
-mmrotate/demo/data/data
-mmrotate/demo/data/res_inference100
-mmrotate/demo/data/img_tagliate_ruotate1803
+
