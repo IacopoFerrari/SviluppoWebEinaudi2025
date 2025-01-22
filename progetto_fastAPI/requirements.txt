@@ -1,0 +1,5 @@
+fastapi==0.88.0
+fastapi-login==1.8.3
+uvicorn==0.20.0
+SQLAlchemy==2.0.16
+mysqlclient==2.2.4
