@@ -60,3 +60,8 @@ def get_data(id: int):
         "message": "Hai inviato una richiesta GET con il parametro 'id' corrispondente a {}".format(id)
     }
     return data
+
+
+@app.get("/primo_ingresso")
+def primo_ingr():
+    return "ciao Benvenuto"

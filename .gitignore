@@ -92,6 +92,7 @@ celerybeat-schedule
 # Environments
 .env
 .venv
+venv_progFastAPI_Iacopo/
 env/
 venv/
 ENV/
