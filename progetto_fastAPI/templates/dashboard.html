@@ -4,7 +4,31 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h2>Benvenuto nella Dashboard!</h2>
-    <a href="/">Logout</a>
+    <div class="container">
+        <h1>Lista Prodotti</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titolo</th>
+                    <th>Quantità</th>
+                    <th>Prezzo (€)</th>
+                    <th>Disponibile</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{% if product.in_stock %}✅{% else %}❌{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
+

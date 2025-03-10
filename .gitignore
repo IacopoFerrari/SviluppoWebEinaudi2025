@@ -122,5 +122,5 @@ dmypy.json
 tmp
 
 # custom
-
+/progetto_fastAPI/getpasswd.py
 
