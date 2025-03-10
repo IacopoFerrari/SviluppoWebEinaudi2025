@@ -5,3 +5,4 @@ SQLAlchemy==2.0.16
 mysqlclient==2.2.4
 jinja2==3.1.2
 python-multipart==0.0.20
+mysql-connector-python==9.0.0
