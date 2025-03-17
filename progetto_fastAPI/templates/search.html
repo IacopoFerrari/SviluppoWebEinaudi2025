@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Ricerca Prodotti</title>
+    </head>
+    <body>
+        <h2>Ricerca Prodotti</h2>
+        <form id="searchForm">
+            <label for="title">Titolo:</label>
+            <input type="text" id="title" name="title"><br>
+            <label for="min_quantity">Quantità minima:</label>
+            <input type="number" id="min_quantity" name="min_quantity"><br>
+            <label for="max_price">Prezzo massimo:</label>
+            <input type="number" id="max_price" name="max_price"><br>
+            <label for="in_stock">Disponibile:</label>
+            <input type="checkbox" id="in_stock" name="in_stock"><br>
+            <button type="button" onclick="searchProducts()">Cerca</button>
+        </form>
+        <div id="results"></div>
+        <script>
+            async function searchProducts() {
+                let title = document.getElementById('title').value;
+                let min_quantity = document.getElementById('min_quantity').value;
+                let max_price = document.getElementById('max_price').value;
+                let in_stock = document.getElementById('in_stock').checked;
+                let query = `?title=${title}&min_quantity=${min_quantity}&max_price=${max_price}&in_stock=${in_stock}`;
+                let response = await fetch('/search' + query);
+                let data = await response.json();
+                document.getElementById('results').innerHTML = JSON.stringify(data, null, 2);
+            }
+        </script>
+    </body>
+    </html>

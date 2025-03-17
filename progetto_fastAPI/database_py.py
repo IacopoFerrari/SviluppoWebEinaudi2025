@@ -1,6 +1,7 @@
 import mysql.connector
 from getpasswd import *
 from decimal import Decimal
+from typing import List, Dict
 
 conn = mysql.connector.connect(
     host="localhost", #sostituisci l'indirizzo IP del server con il DB dentro
@@ -27,6 +28,7 @@ def db_get_products(diz):
         product = {column_names[i]: (float(row[i]) if isinstance(row[i], Decimal) else row[i]) for i in range(len(row))}
         products.append(product)
 
+    print(products)
     cur.close()
     conn.close()
     return products
@@ -43,6 +45,32 @@ def db_delete(diz):
     # query delete
     pass
 
+def search_products(
+    title: str = None,
+    min_quantity: int = None,
+    max_price: float = None,
+    in_stock: bool = None
+) -> List[Dict]:
+    cursor = conn.cursor()
+        
+    query = "SELECT * FROM products WHERE 1=1"
+    params = []
+
+    if title:
+        query += " AND title LIKE %s"
+        params.append(f"%{title}%")
+    if min_quantity is not None:
+        query += " AND quantity >= %s"
+        params.append(min_quantity)
+    if max_price is not None:
+        query += " AND price <= %s"
+        params.append(max_price)
+
+    cursor.execute(query, tuple(params))
+    print(cursor.description)
+    results = cursor.fetchall()
+    return results
+
 
 if __name__ == '__main__':
-    db_get_products({})
+    print(search_products(title="Smartphone"))
