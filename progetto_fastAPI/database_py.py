@@ -1,12 +1,12 @@
 import mysql.connector
-from getpasswd import *
 from decimal import Decimal
 from typing import List, Dict
 
+"""
 conn = mysql.connector.connect(
     host="localhost", #sostituisci l'indirizzo IP del server con il DB dentro
     user="root",
-    password=getpass(),
+    password="",
     database="pnrr_new_pon",
     port=3306, #porta default di mySQL
     )
@@ -45,17 +45,19 @@ def db_delete(diz):
     # query delete
     pass
 
+"""
 def search_products(
     title: str = None,
     min_quantity: int = None,
     max_price: float = None,
     in_stock: bool = None
 ) -> List[Dict]:
+    """
     cursor = conn.cursor()
         
     query = "SELECT * FROM products WHERE 1=1"
     params = []
-    """
+
     if title:
         query += " AND title LIKE %s"
         params.append(f"%{title}%")
@@ -69,8 +71,9 @@ def search_products(
     cursor.execute(query, tuple(params))
     print(cursor.description)
     results = cursor.fetchall()
-    """
-    results = [(1, 'Smartphone', 50, Decimal('699'), 0), (4, 'Mouse Wireless', 75, Decimal('100'), 1), (11, 'ciao', 3, Decimal('10'), 11)]
+    print(results)
+    """    
+    results = [('id', 3, None, None, None, None, 0, 49667, 63), ('title', 253, None, None, None, None, 1, 0, 255), ('quantity', 3, None, None, None, None, 1, 32768, 63), ('price', 246, None, None, None, None, 1, 32768, 63), ('in_stock', 1, None, None, None, None, 1, 32768,, None, 1, 32768, 63)]
     return results
 
 
