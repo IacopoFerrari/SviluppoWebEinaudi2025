@@ -55,7 +55,7 @@ def search_products(
         
     query = "SELECT * FROM products WHERE 1=1"
     params = []
-
+    """
     if title:
         query += " AND title LIKE %s"
         params.append(f"%{title}%")
@@ -69,6 +69,8 @@ def search_products(
     cursor.execute(query, tuple(params))
     print(cursor.description)
     results = cursor.fetchall()
+    """
+    results = [(1, 'Smartphone', 50, Decimal('699'), 0), (4, 'Mouse Wireless', 75, Decimal('100'), 1), (11, 'ciao', 3, Decimal('10'), 11)]
     return results
 
 
