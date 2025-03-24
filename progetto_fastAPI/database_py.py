@@ -44,8 +44,8 @@ def db_update(diz):
 def db_delete(diz):
     # query delete
     pass
-
 """
+
 def search_products(
     title: str = None,
     min_quantity: int = None,
@@ -71,9 +71,8 @@ def search_products(
     cursor.execute(query, tuple(params))
     print(cursor.description)
     results = cursor.fetchall()
-    print(results)
-    """    
-    results = [('id', 3, None, None, None, None, 0, 49667, 63), ('title', 253, None, None, None, None, 1, 0, 255), ('quantity', 3, None, None, None, None, 1, 32768, 63), ('price', 246, None, None, None, None, 1, 32768, 63), ('in_stock', 1, None, None, None, None, 1, 32768,, None, 1, 32768, 63)]
+    """
+    results = [(1, 'Smartphone', 50, Decimal('699'), 0), (4, 'Mouse Wireless', 75, Decimal('100'), 1), (11, 'ciao', 3, Decimal('10'), 11)]
     return results
 
 
